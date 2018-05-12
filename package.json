@@ -22,7 +22,7 @@
     "lint:css": "stylelint --config './config/stylelint/.stylelintrc.json' './demos/**/*.css'",
     "watch": "tsc --watch",
     "build": "tsc",
-    "bundle": "webpack --config ./config/webpack/config.ts",
+    "bundle": "webpack --config ./config/webpack/createWebpackConfig.ts",
     "bundle:watch": "npm run bundle -- --watch",
     "bundle:build": "npm run bundle -- --env=production && npm run copy:bundle",
     "copy:bundle": "cp ./bundle/easydropdown.js ./demos/easydropdown.js && cp ./bundle/easydropdown.js.map ./demos/easydropdown.js.map",
@@ -33,9 +33,9 @@
     "extends": "./config/nyc/.nycrc.json"
   },
   "bundlesize": [
-   {
+    {
       "path": "./bundle/easydropdown.js",
-      "maxSize": "9.17 kB"
+      "maxSize": "9.11 kB"
     }
   ],
   "dependencies": {
@@ -47,6 +47,7 @@
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.53",
     "@types/sinon": "^4.3.1",
+    "@types/webpack": "^4.1.6",
     "bundlesize": "^0.17.0",
     "chai": "^3.5.0",
     "chai-shallow-deep-equal": "^1.4.0",
@@ -58,6 +59,7 @@
     "nyc": "^11.3.0",
     "sinon": "^4.5.0",
     "source-map-support": "^0.5.0",
+    "strip-whitespace-plugin": "^1.0.3",
     "stylelint": "^9.2.0",
     "stylelint-config-standard": "^18.2.0",
     "ts-loader": "^4.2.0",
@@ -66,6 +68,7 @@
     "tslint": "^5.8.0",
     "tslint-eslint-rules": "^5.1.0",
     "typescript": "^2.6.1",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.1.2"
   }

@@ -38,6 +38,8 @@ class Easydropdown {
         this.dom = this.renderer.render(this.state, selectElement);
         this.timers = new Timers();
 
+        console.log(this.state);
+
         this.actions = StateManager.proxyActions(this.state, {
             closeOthers: closeOthers.bind(null, this, cache),
             scrollToView: scrollToView.bind(null, this.dom, this.timers)

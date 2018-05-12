@@ -23,8 +23,6 @@ class Renderer {
         this.dom = new Dom();
         this.dom.root = rootElement;
 
-        this.dom.option.length = this.dom.group.length = 0;
-
         Renderer.queryDomRefs(this.dom);
 
         this.injectSelect(selectElement);

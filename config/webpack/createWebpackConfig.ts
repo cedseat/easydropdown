@@ -1,10 +1,11 @@
 import {resolve}       from 'path';
 import {Configuration} from 'webpack';
 
-import Environment    from './Constants/Environment';
-import typescriptRule from './Rules/typescriptRule';
+import Environment               from './Constants/Environment';
+import createWebpackPluginsArray from './createWebpackPlugins';
+import typescriptRule            from './Rules/typescriptRule';
 
-const config = (env: Environment = Environment.DEVELOPMENT): Configuration => {
+const createWebpackConfig = (env: Environment = Environment.DEVELOPMENT): Configuration => {
     const isProductionEnvironment = env === Environment.PRODUCTION;
 
     return {
@@ -18,11 +19,12 @@ const config = (env: Environment = Environment.DEVELOPMENT): Configuration => {
         },
         devtool: 'source-map',
         optimization: {
-            minimize: isProductionEnvironment
+            minimize: false
         },
         resolve: {
             extensions: ['.ts', '.js']
         },
+        plugins: createWebpackPluginsArray(env),
         module: {
             rules: [
                 typescriptRule
@@ -31,4 +33,4 @@ const config = (env: Environment = Environment.DEVELOPMENT): Configuration => {
     };
 };
 
-export default config;
+export default createWebpackConfig;
