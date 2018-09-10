@@ -82,6 +82,7 @@ class StateMapper {
         return merge(new Option(), {
             label: option.textContent,
             value: option.value,
+            additionalClasses: option.getAttribute('data-additional-classes'),
             isDisabled: option.disabled || isParentGroupDisabled
         });
     }

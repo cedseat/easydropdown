@@ -33,7 +33,7 @@
     "extends": "./config/nyc/.nycrc.json"
   },
   "bundlesize": [
-   {
+    {
       "path": "./bundle/easydropdown.js",
       "maxSize": "9.17 kB"
     }

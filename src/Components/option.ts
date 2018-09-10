@@ -8,6 +8,7 @@ function option(optionState: Option, state: State, classNames: ClassNames): stri
 
     const className = composeClassName([
         classNames.option,
+        optionState.additionalClasses || '',
         [isSelected, classNames.optionSelected],
         [optionState === state.focusedOption, classNames.optionFocused],
         [optionState.isDisabled, classNames.optionDisabled]
